@@ -2,32 +2,29 @@ package org.example;
 
 import java.util.Observable;
 
-public class Turma extends Observable {
+public class Tarefa extends Observable {
 
-    private Integer ano;
-    private Integer semestre;
-    private String nomeDisciplina;
-    private String nomeTurma;
+    private Integer numeroLinhas;
+    private String descricao;
+    private String nomeTarefa;
 
-    public Turma(Integer ano, Integer semestre, String nomeDisciplina, String nomeTurma) {
-        this.ano = ano;
-        this.semestre = semestre;
-        this.nomeDisciplina = nomeDisciplina;
-        this.nomeTurma = nomeTurma;
+    public Tarefa(Integer numeroLinhas, String descricao, String nomeTarefa) {
+        this.numeroLinhas = numeroLinhas;
+        this.descricao = descricao;
+        this.nomeTarefa = nomeTarefa;
     }
 
-    public void lancarNotas() {
+    public void alterarTarefa() {
         setChanged();
         notifyObservers();
     }
 
     @Override
     public String toString() {
-        return "Turma{" +
-                "ano=" + ano +
-                ", semestre=" + semestre +
-                ", nomeDisciplina='" + nomeDisciplina + '\'' +
-                ", nomeTurma='" + nomeTurma + '\'' +
+        return "Tarefa{" +
+                "numeroLinhas=" + numeroLinhas +
+                ", descricao='" + descricao + '\'' +
+                ", nomeTarefa='" + nomeTarefa + '\'' +
                 '}';
     }
 }

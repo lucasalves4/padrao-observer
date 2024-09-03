@@ -3,12 +3,12 @@ package org.example;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Aluno implements Observer {
+public class Usuario implements Observer {
 
     private String nome;
     private String ultimaNotificacao;
 
-    public Aluno(String nome) {
+    public Usuario(String nome) {
         this.nome = nome;
     }
 
@@ -16,12 +16,12 @@ public class Aluno implements Observer {
         return this.ultimaNotificacao;
     }
 
-    public void matricular(Turma turma) {
-        turma.addObserver(this);
+    public void criarTarefa(Tarefa tarefa) {
+        tarefa.addObserver(this);
     }
 
-    public void update(Observable turma, Object arg1) {
-        this.ultimaNotificacao = this.nome + ", nota lançada na " + turma.toString();
+    public void update(Observable tarefa, Object arg1) {
+        this.ultimaNotificacao = this.nome + ", alteração realizada na " + tarefa.toString();
         // System.out.println(this.ultimaNotificacao);
     }
 }
